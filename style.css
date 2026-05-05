@@ -1,0 +1,55 @@
+/* Custom styles that complement Tailwind CSS */
+
+/* Ensure the background image doesn't show any overflow */
+#certificate-container {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Print Specific Rules for perfect A4 PDF / Print output */
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 0; /* Menghilangkan margin default browser */
+    }
+    body, html {
+        margin: 0;
+        padding: 0;
+        background: white !important;
+        width: 100%;
+        height: 100%;
+    }
+    body * {
+        visibility: hidden;
+    }
+    #preview-section {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    #cert-wrapper, #certificate-container, #certificate-container * {
+        visibility: visible;
+    }
+    #cert-wrapper {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: scale(1) !important; /* Reset zoom untuk print */
+        transform-origin: top left !important;
+        margin: 0 !important;
+    }
+    #certificate-container {
+        box-shadow: none !important;
+        border: none !important;
+    }
+    /* Sembunyikan tombol-tombol saat dicetak */
+    button {
+        display: none !important;
+    }
+}
+.font-bold{
+    font-weight:800 !important;
+}
